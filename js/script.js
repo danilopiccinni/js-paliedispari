@@ -17,12 +17,45 @@ let inputParolaEl = document.getElementById ('input-parola')
 let bottoneContrParolaEl = document.getElementById ('bott-controllo-parola')
 let outputParolaEl = document.getElementById ('riultato-controllo-parola')
 
+bottoneContrParolaEl.addEventListener ('click' , function() {
+ 
+    let parola = Array.from(inputParolaEl.value)
+    let parolainversa = Array.from(inputParolaEl.value).reverse()
 
+    let parola1 = parola.toString()
+    let parola2 = parolainversa.toString()
+
+    console.log (parola , parolainversa , parola1 , parola2 )
+    // console.log (parolainversa)
+    if (parola1 == parola2) {
+        outputParolaEl.innerHTML = 'la parola è palindroma'
+    } else {
+        outputParolaEl.innerHTML = 'la parola NON è palindroma'
+    }
+
+
+
+
+
+
+})
+
+
+
+
+
+
+
+
+
+
+// gioco pari o dispari
+// ________________________________________________________________________________
 let bottoneContrNumeroEl = document.getElementById ('bottone-controllo-numero')
 let outputNumeroEl = document.getElementById ('riultato-controllo-numero')
 let PDsomma;
 
-let scelta = prompt('scegli pari o dispari?')
+// let scelta = prompt('scegli pari o dispari?')
 
 bottoneContrNumeroEl.addEventListener ('click' , function() {
 

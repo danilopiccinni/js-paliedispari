@@ -13,6 +13,74 @@ Pari e Dispari
 -Dichiariamo chi ha vinto.
 */
 
+
+// gioco pari o dispari
+// ________________________________________________________________________________
+let bottoneContrNumeroEl = document.getElementById ('bottone-controllo-numero')
+let outputNumeroEl = document.getElementById ('riultato-controllo-numero')
+let PDsomma;
+
+let scelta = prompt("scegli 'pari' o 'dispari'?")
+
+bottoneContrNumeroEl.addEventListener ('click' , function() {
+    
+    let inputNumeroEl = document.getElementById ('input-numero')
+    let numero = inputNumeroEl.value
+    let numeroBot = creaNumeroCasuale()
+    controlloPariDispari(numero, numeroBot)
+
+})
+
+function creaNumeroCasuale () {
+    
+    let numerocasuale = Math.floor(Math.random() * 5 +1);
+    return numerocasuale
+    
+}
+
+function controlloPariDispari (numero1 , numero2) {
+    
+    numero1 = parseInt(numero1)
+    numero2 = parseInt(numero2)
+    
+    let somma = sommaDueNumeri(numero1 , numero2)
+    
+    if (somma % 2 == 0) {
+        
+        PDsomma = 'pari'
+        
+    }else {
+        
+        PDsomma = 'dispari'
+        
+    }
+    
+    if (scelta == PDsomma) {
+        
+        outputNumeroEl.innerHTML = 'bot ha dato ' + numero2 +' la somma dei numeri e ' + somma + ' quindi pari ' + ' VINCE UTENTE' 
+        
+    } else {
+        
+        outputNumeroEl.innerHTML = 'bot ha dato ' + numero2 + ' la somma dei numeri e ' + somma + ' quindi dispari ' + 'VINCE BOT'
+        
+    }
+    
+    return somma;
+}
+
+function sommaDueNumeri (num1 , num2) {
+    
+    let sommavalori = num1 + num2
+
+    return sommavalori
+
+}
+
+
+// controllo palindomo
+// _________________________________________________________________________________-
+
+
 let inputParolaEl = document.getElementById ('input-parola')
 let bottoneContrParolaEl = document.getElementById ('bott-controllo-parola')
 let outputParolaEl = document.getElementById ('riultato-controllo-parola')
@@ -32,82 +100,4 @@ bottoneContrParolaEl.addEventListener ('click' , function() {
     } else {
         outputParolaEl.innerHTML = 'la parola NON è palindroma'
     }
-
-
-
-
-
-
 })
-
-
-
-
-
-
-
-
-
-
-// gioco pari o dispari
-// ________________________________________________________________________________
-let bottoneContrNumeroEl = document.getElementById ('bottone-controllo-numero')
-let outputNumeroEl = document.getElementById ('riultato-controllo-numero')
-let PDsomma;
-
-// let scelta = prompt('scegli pari o dispari?')
-
-bottoneContrNumeroEl.addEventListener ('click' , function() {
-
-    let inputNumeroEl = document.getElementById ('input-numero')
-    let numero = inputNumeroEl.value
-    let numeroBot = creaNumeroCasuale()
-    controlloPariDispari(numero, numeroBot)
-
-
-
-})
-
-function creaNumeroCasuale () {
-
-    let numerocasuale = Math.floor(Math.random() * 5 +1);
-    return numerocasuale
-
-}
-
-function controlloPariDispari (numero1 , numero2) {
-
-    numero1 = parseInt(numero1)
-    numero2 = parseInt(numero2)
-
-    let somma = sommaDueNumeri(numero1 , numero2)
-
-    if (somma % 2 == 0) {
-
-        PDsomma = 'pari'
-
-    }else {
-
-        PDsomma = 'dispari'
-
-    }
-
-    if (scelta == PDsomma) {
-
-        outputNumeroEl.innerHTML = 'bot ha dato ' + numero2 +' la somma dei numeri e ' + somma + ' quindi pari ' + ' VINCE UTENTE' 
-
-    } else {
-
-        outputNumeroEl.innerHTML = 'bot ha dato ' + numero2 + ' la somma dei numeri e ' + somma + ' quindi dispari ' + 'VINCE BOT'
-
-    }
-
-    return somma;
-}
-
-function sommaDueNumeri (num1 , num2) {
-
-    let sommavalori = num1 + num2
-    return sommavalori
-
-}

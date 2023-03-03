@@ -84,20 +84,42 @@ function sommaDueNumeri (num1 , num2) {
 let inputParolaEl = document.getElementById ('input-parola')
 let bottoneContrParolaEl = document.getElementById ('bott-controllo-parola')
 let outputParolaEl = document.getElementById ('riultato-controllo-parola')
+let parola;
+
 
 bottoneContrParolaEl.addEventListener ('click' , function() {
- 
-    let parola = Array.from(inputParolaEl.value)
-    let parolainversa = Array.from(inputParolaEl.value).reverse()
 
-    let parola1 = parola.toString()
-    let parola2 = parolainversa.toString()
+    parola = Array.from(inputParolaEl.value)
 
-    console.log (parola , parolainversa , parola1 , parola2 )
-    // console.log (parolainversa)
-    if (parola1 == parola2) {
+    let veroFalso = controllapalindromia(parola)
+
+    if (veroFalso == true) {
         outputParolaEl.innerHTML = 'la parola è palindroma'
     } else {
         outputParolaEl.innerHTML = 'la parola NON è palindroma'
     }
+
 })
+
+
+function controllapalindromia (paroladacontrollare) {
+
+    let esito = true
+
+    parola = Array.from(inputParolaEl.value)
+
+    let parolainversa = Array.from(inputParolaEl.value).reverse()
+    
+    let parola1 = parola.toString()
+    let parola2 = parolainversa.toString()
+    
+    console.log (parola , parolainversa , parola1 , parola2 )
+    console.log (esito)
+
+    if (parola1 !== parola2) {
+        esito = false
+    } 
+
+return esito ;
+
+}

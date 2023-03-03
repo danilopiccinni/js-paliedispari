@@ -25,9 +25,20 @@ let scelta = prompt("scegli 'pari' o 'dispari'?")
 bottoneContrNumeroEl.addEventListener ('click' , function() {
     
     let inputNumeroEl = document.getElementById ('input-numero')
-    let numero = inputNumeroEl.value
-    let numeroBot = creaNumeroCasuale()
+    let numero = parseInt (inputNumeroEl.value)
+    let numeroBot = parseInt(creaNumeroCasuale())
+    let sommasomma = sommaDueNumeri(numero , numeroBot)
     controlloPariDispari(numero, numeroBot)
+
+        if (scelta == PDsomma) {
+        
+            outputNumeroEl.innerHTML = 'bot ha dato ' + numeroBot +' la somma dei numeri e ' + sommasomma + ' quindi pari ' + ' VINCE UTENTE' 
+            
+        } else {
+            
+            outputNumeroEl.innerHTML = 'bot ha dato ' + numeroBot + ' la somma dei numeri e ' + sommasomma + ' quindi dispari ' + 'VINCE BOT'
+            
+        }
 
 })
 
@@ -54,18 +65,9 @@ function controlloPariDispari (numero1 , numero2) {
         PDsomma = 'dispari'
         
     }
-    
-    if (scelta == PDsomma) {
-        
-        outputNumeroEl.innerHTML = 'bot ha dato ' + numero2 +' la somma dei numeri e ' + somma + ' quindi pari ' + ' VINCE UTENTE' 
-        
-    } else {
-        
-        outputNumeroEl.innerHTML = 'bot ha dato ' + numero2 + ' la somma dei numeri e ' + somma + ' quindi dispari ' + 'VINCE BOT'
-        
-    }
-    
-    return somma;
+     
+    return PDsomma;
+
 }
 
 function sommaDueNumeri (num1 , num2) {

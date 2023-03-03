@@ -21,22 +21,29 @@ let outputNumeroEl = document.getElementById ('riultato-controllo-numero')
 let PDsomma;
 
 let scelta = prompt("scegli 'pari' o 'dispari'?")
+let scelteEl = document.getElementById ('scelte')
+    if (scelta == 'pari') {
+        scelteEl.innerHTML = 'UTENTE pari' + '<br>' + 'BOT dispari'
+    } else {
+        scelteEl.innerHTML = 'UTENTE dispari' + '<br>' + 'BOT pari'
+    }
+
 
 bottoneContrNumeroEl.addEventListener ('click' , function() {
     
     let inputNumeroEl = document.getElementById ('input-numero')
     let numero = parseInt (inputNumeroEl.value)
     let numeroBot = parseInt(creaNumeroCasuale())
-    let sommasomma = sommaDueNumeri(numero , numeroBot)
+    let sommagiocata = sommaDueNumeri(numero , numeroBot)
     controlloPariDispari(numero, numeroBot)
 
         if (scelta == PDsomma) {
         
-            outputNumeroEl.innerHTML = 'bot ha dato ' + numeroBot +' la somma dei numeri e ' + sommasomma + ' quindi pari ' + ' VINCE UTENTE' 
+            outputNumeroEl.innerHTML = 'bot ha dato ' + numeroBot +' la somma dei numeri è ' + sommagiocata + ' ' + PDsomma + ' VINCE UTENTE' 
             
         } else {
             
-            outputNumeroEl.innerHTML = 'bot ha dato ' + numeroBot + ' la somma dei numeri e ' + sommasomma + ' quindi dispari ' + 'VINCE BOT'
+            outputNumeroEl.innerHTML = 'bot ha dato ' + numeroBot + ' la somma dei numeri è ' + sommagiocata + ' ' + PDsomma + ' VINCE BOT'
             
         }
 
